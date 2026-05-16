@@ -12,12 +12,12 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph import END, START, StateGraph
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 
 
 load_dotenv()
 
-groq_api_key = os.getenv("GROQ_API")
+groq_api_key = os.getenv("GROQ_KEY")
 langsmith_api_key = os.getenv("LANGSMITH_API_KEY")
 
 if not groq_api_key or not langsmith_api_key:
@@ -26,7 +26,7 @@ if not groq_api_key or not langsmith_api_key:
 os.environ["GROQ_API_KEY"] = groq_api_key
 os.environ["LANGSMITH_API_KEY"] = langsmith_api_key
 os.environ["LANGSMITH_TRACING"] = "true"
-os.environ["LANGSMITH_PROJECT"] = "langgraph-minimal-assignment"
+os.environ["LANGSMITH_PROJECT"] = "langgraph-hackai"
 
 
 # -------------------- load LLM --------------------
@@ -58,7 +58,7 @@ def web_search(query: str) -> str:
 
 
 # -------------------- create agent --------------------
-react_agent = create_react_agent(llm, tools=[calculator, web_search])
+react_agent = create_agent(llm, tools=[calculator, web_search])
 
 
 def call_agent(query: str) -> str:
