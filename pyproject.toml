@@ -1,0 +1,9 @@
+[project]
+name = "agent-with-langgraph-tracing-hackai"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-groq>=1.1.2",
+    "langgraph>=1.2.0",
+    "python-dotenv>=1.2.2",
+]
