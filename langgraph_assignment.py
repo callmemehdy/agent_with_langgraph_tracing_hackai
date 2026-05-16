@@ -93,7 +93,7 @@ def agent_node(state: AppState) -> AppState:
 
 
 def skip_node(state: AppState) -> AppState:
-    return {"query": state["query"], "answer": "Skipped by branch rule."}
+    return {"query": state["query"], "answer": "Skipped."}
 
 
 builder = StateGraph(AppState)

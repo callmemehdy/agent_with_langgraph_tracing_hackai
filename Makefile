@@ -3,7 +3,7 @@
 ENTRY	=	langgraph_assignment.py
 
 run:
-	@echo "normal mode - rag is loading . . ."
+	@echo "normal mode - agent is loading . . ."
 	@uv run $(ENTRY)
 
 # eval:
